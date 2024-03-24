@@ -1,0 +1,23 @@
+{
+  "name": "node_js_nasa",
+  "version": "1.0.0",
+  "description": "A project to learn Node.js using NASA API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnnaShtyka/node_js_proxy.git"
+  },
+  "author": "h.shtyka@godeltech.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AnnaShtyka/node_js_proxy/issues"
+  },
+  "homepage": "https://github.com/AnnaShtyka/node_js_proxy#readme",
+  "dependencies": {
+    "axios": "^1.6.8",
+    "dotenv": "^16.4.5"
+  }
+}
