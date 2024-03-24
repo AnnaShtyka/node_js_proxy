@@ -3,8 +3,8 @@ require("dotenv").config();
 const axios = require("axios");
 
 const apiKey = process.env.API_KEY;
-const startDate = process.env.START_DATE;
-const endDate = process.env.END_DATE;
+START_DATE = '2024-03-22';
+END_DATE = '2024-03-29';
 
 const nasaApi = process.env.NASA_API_URL;
 
@@ -16,8 +16,8 @@ const getAllAsteroids = () => {
   axios
     .get(nasaApi, {
       params: {
-        start_date: startDate,
-        end_date: endDate,
+        start_date: START_DATE,
+        end_date: END_DATE,
         api_key: apiKey
       }
     })
@@ -31,7 +31,7 @@ const getAllAsteroids = () => {
 
 const showAsteroidsInAWeek = (allElements) => {
   console.log(
-    `From ${process.env.START_DATE} to ${process.env.END_DATE} near earth were ${allElements}`
+    `From ${START_DATE} to ${END_DATE} near earth were ${allElements}`
   );
 };
 
