@@ -1,6 +1,6 @@
 const meteorsService = require("../services/meteorsService");
 
-const getAllMeteors = (req, res) => {
+const getAllMeteors = (req, res, next) => {
   const request = queryParams(req);
 
   return meteorsService

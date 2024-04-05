@@ -3,7 +3,7 @@ const mapAllMeteorsData = (allMeteors) => {
   return meteors;
 };
 
-const getMeteorData = (meteor) => {
+const mapMeteorData = (meteor) => {
   return {
     id: meteor.id,
     name: meteor.name,
@@ -21,13 +21,13 @@ const getCloseApproachData = (closeApproachData) => {
   }));
 };
 
-const isWereDangerousMeteors = (meteors) => {
+const hasDangerousMeteors = (meteors) => {
   return meteors.some((meteor) => meteor.is_potentially_hazardous_asteroid);
 };
 
 const getMeteorsDataWithQuery = (allMeteors, elementCount, dangerous) => {
   const mappedAllMeteorsData = mapAllMeteorsData(allMeteors);
-  const meteor = mappedAllMeteorsData.map((meteor) => getMeteorData(meteor));
+  const meteor = mappedAllMeteorsData.map((meteor) => mapMeteorData(meteor));
 
   let dataWithQuery = {};
 
@@ -38,7 +38,7 @@ const getMeteorsDataWithQuery = (allMeteors, elementCount, dangerous) => {
   }
 
   if (dangerous) {
-    dataWithQuery.dangerous = isWereDangerousMeteors(mappedAllMeteorsData);
+    dataWithQuery.dangerous = hasDangerousMeteors(mappedAllMeteorsData);
   }
 
   dataWithQuery.meteors = meteor;

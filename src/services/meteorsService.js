@@ -8,15 +8,17 @@ const httpsAgent = new https.Agent({
   rejectUnauthorized: false
 });
 
-const START_DATE = "2024-03-22";
-const END_DATE = "2024-03-29";
-
 const getAllMeteors = (params) => {
   const nasaApi = process.env.NASA_API_URL;
 
   return axios
     .get(nasaApi, {
-      httpsAgent
+      httpsAgent,
+      params: {
+        start_date: process.env.START_DATE,
+        end_date: process.env.END_DATE,
+        api_key: process.env.API_KEY
+      }
     })
     .then((response) => {
       const data = getMeteorsDataWithQuery(
@@ -25,12 +27,11 @@ const getAllMeteors = (params) => {
         params.wereDangerousMeteors
       );
       console.log(
-        `From ${START_DATE} to ${END_DATE} near earth were ${allElements}`
+        `From ${process.env.START_DATE} to ${process.env.END_DATE} near earth were ${response.data.element_count}`
       );
 
       return data;
-    })
-    .catch((error) => console.log(error));
+    });
 };
 
 module.exports = { getAllMeteors };
